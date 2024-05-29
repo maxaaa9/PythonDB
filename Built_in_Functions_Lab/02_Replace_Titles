@@ -1,0 +1,4 @@
+SELECT
+	REPLACE (title, LEFT(title, 3), '***') AS title
+FROM books
+WHERE LEFT(title, 3) = 'The';
