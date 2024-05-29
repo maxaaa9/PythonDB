@@ -1,0 +1,10 @@
+SELECT
+	title
+FROM books
+WHERE title LIKE 'Harry Potter %'
+
+-- Can be like this.
+SELECT
+	title
+FROM books
+WHERE 'Harry Potter' LIKE LEFT(title, 12);
