@@ -28,11 +28,11 @@ SELECT
 	' ',
 	'The river',
 	river_name,
-	' flows into the ',
+	'flows into the',
 	outflow,
-	' and is ',
+	'and is',
 	"length",
-	' kilometers long.'
+	'kilometers long.'
 	) AS "River Information"
 FROM rivers
 ORDER BY river_name;
