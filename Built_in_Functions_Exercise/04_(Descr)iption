@@ -1,0 +1,9 @@
+SELECT
+	RIGHT(description, -4) AS "substring"
+FROM currencies;
+
+-- Or like this.
+
+SELECT
+	SUBSTRING(description FROM 5)
+FROM currencies;

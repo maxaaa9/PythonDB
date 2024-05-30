@@ -1,0 +1,11 @@
+SELECT
+	REPLACE(mountain_range, 'a', '@') AS replace_a,
+	REPLACE(mountain_range, 'A', '$') AS replace_A
+FROM mountains;
+
+-- Can be used and with TRANSLATE.
+
+SELECT
+	TRANSLATE(mountain_range, 'a', '@') AS replace_a,
+	TRANSLATE(mountain_range, 'A', '$') AS replace_A
+FROM mountains;
