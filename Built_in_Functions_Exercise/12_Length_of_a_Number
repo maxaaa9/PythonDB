@@ -1,0 +1,11 @@
+SELECT
+	population,
+	LENGTH(population::TEXT) AS "length"
+FROM countries;
+
+-- Can be like.
+
+SELECT
+	population,
+	LENGTH(CAST(population AS TEXT)) AS "length"
+FROM countries;

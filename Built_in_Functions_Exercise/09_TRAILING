@@ -1,0 +1,11 @@
+SELECT
+	continent_name,
+	TRIM(continent_name) AS "trim"
+FROM continents;
+
+-- Same like this.
+
+SELECT
+	continent_name,
+	TRIM(TRAILING FROM continent_name) AS "trim"
+FROM continents;
