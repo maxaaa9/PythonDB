@@ -1,0 +1,30 @@
+CREATE TABLE clients(
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	name VARCHAR(100)
+);
+
+CREATE TABLE projects(
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	client_id INT UNIQUE,
+	project_lead_id INT UNIQUE
+);
+
+CREATE TABLE employees (
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	first_name VARCHAR(30),
+	last_name VARCHAR(30),
+	project_id INT UNIQUE,
+	FOREIGN KEY (project_id)
+		REFERENCES projects(id)
+);
+
+ALTER TABLE projects
+ADD CONSTRAINT fk_client_id_to_clients
+	FOREIGN KEY(client_id)
+		REFERENCES clients(id),
+ADD CONSTRAINT fk_project_led_id_to_employees
+	FOREIGN KEY (project_lead_id)
+		REFERENCES employees(id)
+;
+
+
