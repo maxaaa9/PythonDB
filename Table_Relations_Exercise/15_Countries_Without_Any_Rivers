@@ -1,0 +1,9 @@
+SELECT
+	COUNT(*)
+FROM
+	countries as c
+LEFT JOIN
+	countries_rivers as cr
+USING
+	(country_code)
+WHERE cr.river_id IS NULL;
