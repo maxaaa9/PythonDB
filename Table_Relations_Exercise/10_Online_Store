@@ -1,0 +1,55 @@
+CREATE TABLE item_types (
+	"id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	item_type_name VARCHAR(50)
+);
+
+CREATE TABLE cities (
+	"id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	city_name VARCHAR(50)
+);
+
+CREATE TABLE customers (
+	"id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	customer_name VARCHAR(50),
+	birthday DATE,
+	city_id INTEGER,
+	CONSTRAINT fk_city_id_cities
+	FOREIGN KEY(city_id)
+	REFERENCES cities(id)
+);
+
+CREATE TABLE orders (
+	"id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	customer_id INTEGER,
+	CONSTRAINT fk_customer_id_customers
+	FOREIGN KEY(customer_id)
+	REFERENCES customers(id)
+);
+
+CREATE TABLE items (
+	"id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	item_name VARCHAR(50),
+	item_type_id INTEGER,
+	CONSTRAINT fk_item_type_id_item_types
+	FOREIGN KEY(item_type_id)
+	REFERENCES item_types(id)
+);
+
+CREATE TABLE order_items (
+	order_id INTEGER,
+	item_id INTEGER,
+	CONSTRAINT pk_order_id_item_id
+	PRIMARY KEY (order_id, item_id),
+
+	CONSTRAINT fk_order_id_orders
+	FOREIGN KEY(order_id)
+	REFERENCES orders(id),
+
+	CONSTRAINT fk_item_id_orders
+	FOREIGN KEY(item_id)
+	REFERENCES items(id)
+);
+
+
+
+
